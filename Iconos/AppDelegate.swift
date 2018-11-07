@@ -15,7 +15,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        if let window = window{
+            window.tintColor = ColorStyle.tintColor()
+            Style.customize()
+            let principal = Principal()
+            let secundario = Secundario()
+            let terciario = Terciario()
+            let cuaternario = Cuarternario()
+            let quintinirikiniario = Quintinirikiniario()
+            let firstNavigationController = UINavigationController(rootViewController: principal)
+            let secondNavigationController = UINavigationController(rootViewController: secundario)
+            let thirdNavigationController = UINavigationController(rootViewController: terciario)
+            let fourtNavigationController = UINavigationController(rootViewController: cuaternario)
+            let fiftNavigationController = UINavigationController(rootViewController: quintinirikiniario)
+            let tabController = UITabBarController()
+            tabController.viewControllers =
+                [firstNavigationController, secondNavigationController, thirdNavigationController, fourtNavigationController, fiftNavigationController]
+
+            window.rootViewController = tabController
+            window.makeKeyAndVisible()
+        }
         return true
     }
 
